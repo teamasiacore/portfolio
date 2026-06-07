@@ -1,0 +1,14 @@
+{
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "routes": [
+        {
+            "src": "/success",
+            "dest": "/success.html"
+        },
+        {
+            "src": "/resume",
+            "dest": "/resume.html"
+        }
+    ]
+}

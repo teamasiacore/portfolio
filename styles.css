@@ -1,0 +1,220 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    background-color: #0a0a0a;
+    color: #ffffff;
+    overflow-x: hidden;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+/* --- BACKGROUND ANIMATION --- */
+.bg-animated {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background: radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.12), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(147, 51, 234, 0.12), transparent 25%);
+    animation: backgroundShift 15s ease-in-out infinite alternate;
+}
+
+@keyframes backgroundShift {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1) translate(2%, 2%); }
+    100% { transform: scale(1) translate(-2%, -2%); }
+}
+
+/* --- GLASS CARDS --- */
+.glass-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.2);
+    border-color: rgba(59, 130, 246, 0.4);
+}
+
+.text-gradient {
+    background: linear-gradient(to right, #3b82f6, #9333ea);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar, .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track, .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb, .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover, .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* --- NEW SOCIAL POPUP STYLES (INTEGRATED) --- */
+.social-wrapper {
+    display: inline-flex;
+    list-style: none;
+    gap: 15px;
+    padding: 0;
+    margin-top: 20px;
+    font-family: "Poppins", sans-serif;
+}
+
+.social-wrapper .icon {
+    position: relative;
+    background: #ffffff;
+    border-radius: 50%;
+    padding: 15px;
+    margin: 0;
+    width: 55px;
+    height: 55px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    color: #333; /* Default icon color */
+}
+
+.social-wrapper .tooltip {
+    position: absolute;
+    top: 0;
+    font-size: 14px;
+    background: #ffffff;
+    color: #ffffff;
+    padding: 5px 8px;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+.social-wrapper .tooltip::before {
+    position: absolute;
+    content: "";
+    height: 8px;
+    width: 8px;
+    background: #ffffff;
+    bottom: -3px;
+    left: 50%;
+    transform: translate(-50%) rotate(45deg);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.social-wrapper .icon:hover .tooltip {
+    top: -50px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Specific Social Colors & Gradients */
+
+/* Instagram */
+.social-wrapper .instagram:hover,
+.social-wrapper .instagram:hover .tooltip,
+.social-wrapper .instagram:hover .tooltip::before {
+    background: #f09433; 
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+    color: #ffffff;
+}
+
+/* LinkedIn */
+.social-wrapper .linkedin:hover,
+.social-wrapper .linkedin:hover .tooltip,
+.social-wrapper .linkedin:hover .tooltip::before {
+    background: #0077b5;
+    color: #ffffff;
+}
+
+/* Gmail (Personal) */
+.social-wrapper .email:hover,
+.social-wrapper .email:hover .tooltip,
+.social-wrapper .email:hover .tooltip::before {
+    background: #EA4335;
+    color: #ffffff;
+}
+
+/* College Email (using a greenish tone or dark grey) */
+.social-wrapper .college:hover,
+.social-wrapper .college:hover .tooltip,
+.social-wrapper .college:hover .tooltip::before {
+    background: #10b981; /* Green for success/education */
+    color: #ffffff;
+}
+
+/* Phone */
+.social-wrapper .phone:hover,
+.social-wrapper .phone:hover .tooltip,
+.social-wrapper .phone:hover .tooltip::before {
+    background: #25D366; /* WhatsApp/Phone Green */
+    color: #ffffff;
+}
+
+/* Github */
+.social-wrapper .github:hover,
+.social-wrapper .github:hover .tooltip,
+.social-wrapper .github:hover .tooltip::before {
+  background: #333;
+  color: #ffffff;
+}
+
+/* --- FORM STYLES --- */
+.glass-input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    transition: all 0.3s ease;
+}
+.glass-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+    background: rgba(255, 255, 255, 0.08);
+}
+.glass-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+/* Custom select styling for dark mode */
+select.glass-input option {
+    background: #0a0a0a;
+    color: white;
+}
+
+/* Modal Hide/Show */
+.modal-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+.modal-visible {
+    opacity: 1;
+    pointer-events: auto;
+}
